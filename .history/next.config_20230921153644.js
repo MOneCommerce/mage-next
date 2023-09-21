@@ -30,8 +30,10 @@ const nextConfig = {
 	images: {
 		domains: [],
 		minimumCacheTTL: 60,
-		quality: 90,
+		quality: 60,
+
 		formats: ["image/webp"],
+		// unoptimized: true,
 	},
 };
 

@@ -1,0 +1,81 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "module": "esnext",
+    "moduleResolution": "bundler",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "preserve",
+    "incremental": true,
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ],
+    "paths": {
+      "@/*": ["./*"]
+    }
+  },
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
+  "exclude": ["node_modules"]
+}
+{
+	"compilerOptions": {
+		"target": "es5",
+		"typeRoots": ["./node_modules/@types", "./src/@types"],
+		"lib": ["dom", "dom.iterable", "esnext"],
+		"allowJs": true,
+		"skipLibCheck": true,
+		// "strict": true,
+		"strict": false,
+		"forceConsistentCasingInFileNames": true,
+		"noEmit": true,
+		"esModuleInterop": true,
+		"module": "esnext",
+		"moduleResolution": "node",
+		"resolveJsonModule": true,
+		"isolatedModules": true,
+		"jsx": "preserve",
+		"incremental": true,
+		"plugins": [
+			{
+				"name": "next"
+			}
+		],
+		"baseUrl": ".",
+		"paths": {
+			"@/*": ["src/*"],
+			"@components/*": ["src/components/*"],
+			"@app/*": ["src/app/*"],
+			"@lib/*": ["src/lib/*"],
+			"@pages/*": ["src/pages/*"],
+			"@public/*": ["public/*"],
+			"@styles/*": ["src/styles/*"],
+			"@commons/*": ["src/commons/*"],
+			"@utils/*": ["src/utils/*"],
+			"@graphql/*": ["src/graphql/*"],
+			"@graphql-checkout/*": ["src/graphql-checkout/*"],
+			"@containers/*": ["src/containers/*"],
+			"@locale/*": ["src/locale/*"],
+			"@providers/*": ["src/providers/*"],
+			"@ui/*": ["src/ui/*"],
+			"@icons/*": ["src/icons/*"],
+			"@features/*": ["src/features/*"]
+		},
+		"strictNullChecks": true
+	},
+	"include": [
+		"next-env.d.ts",
+		"**/*.ts",
+		"**/*.tsx",
+		".next/types/**/*.ts",
+		"pwa-service.js"
+	],
+	"exclude": ["node_modules"]
+}

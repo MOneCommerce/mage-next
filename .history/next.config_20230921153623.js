@@ -24,14 +24,34 @@ const nextConfig = {
 	},
 	async rewrites() {
 		return {
-			beforeFiles: [],
+			beforeFiles: [
+				{
+					source: "/:store/checkout",
+					destination: `${process.env.NEXT_PUBLIC_CHECKOUT_URL}`,
+				},
+				{
+					source: "/checkout",
+					destination: `${process.env.NEXT_PUBLIC_CHECKOUT_URL}`,
+				},
+			],
 		};
 	},
 	images: {
-		domains: [],
+		domains: [
+			"images.unsplash.com",
+			"tailwindui.com",
+			"sellerise.damda.com",
+			"localhost",
+			"saleor-demo-jej0yspv.saleor.cloud",
+			"sellerise-cms.damda.com",
+			"placehold.jp", // env dev
+			"picsum.photos",
+		],
 		minimumCacheTTL: 60,
-		quality: 90,
+		quality: 60,
+
 		formats: ["image/webp"],
+		// unoptimized: true,
 	},
 };
 
