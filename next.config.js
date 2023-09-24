@@ -1,8 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-	experimental: {
-		appDir: true,
-	},
+	experimental: {},
 	async headers() {
 		return [
 			{
@@ -26,12 +24,6 @@ const nextConfig = {
 		return {
 			beforeFiles: [],
 		};
-	},
-	images: {
-		domains: [],
-		minimumCacheTTL: 60,
-		quality: 90,
-		formats: ["image/webp"],
 	},
 };
 
