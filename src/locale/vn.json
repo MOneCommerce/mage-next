@@ -1,0 +1,13 @@
+{
+  "Footer": {
+    "home": "Trang chủ",
+    "categories": "Danh mục",
+    "cart": "Giỏ hành",
+    "account": "Tài khoản"
+  },
+  "Category": {
+    "filter": "Bộ lọc",
+    "reset-filter": "Đặt lại bộ lọc",
+    "ok": "Đồng ý"
+  }
+}

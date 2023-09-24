@@ -1,0 +1,13 @@
+{
+  "Footer": {
+    "home": "Home",
+    "categories": "Categories",
+    "cart": "Cart",
+    "account": "Account"
+  },
+  "Category": {
+    "filter": "Filter",
+    "reset-filter": "Reset filter",
+    "ok": "OK"
+  }
+}
