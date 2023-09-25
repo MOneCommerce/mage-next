@@ -1,3 +1,4 @@
+import StoreProvider from '@providers/StoreProvider'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 
@@ -13,10 +14,18 @@ export const metadata: Metadata = {
  * @param children
  * @returns
  */
-export default function RootStoreLayout({
+export default async function RootStoreLayout({
   children,
+  params,
 }: {
   children: React.ReactNode
+  params: {
+    store: string
+  }
 }) {
-  return <div>{children}</div>
+  return (
+    <StoreProvider store={params.store} locale="en" messages={{}} settings={{}}>
+      {children}
+    </StoreProvider>
+  )
 }

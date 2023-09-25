@@ -1,14 +1,17 @@
 {
   "compilerOptions": {
     "target": "es5",
+    "typeRoots": ["./node_modules/@types", "./src/@types"],
     "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "skipLibCheck": true,
-    "strict": true,
+    // "strict": true,
+    "strict": false,
+    "forceConsistentCasingInFileNames": true,
     "noEmit": true,
     "esModuleInterop": true,
     "module": "esnext",
-    "moduleResolution": "bundler",
+    "moduleResolution": "node",
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "preserve",
@@ -18,19 +21,12 @@
         "name": "next"
       }
     ],
-    "baseUrl": ".",
+    "baseUrl": "./src",
     "paths": {
-      "@/*": ["./src/*"],
-      "@components/*": ["./src/components/*"],
-      "@lib/*": ["./src/lib/*"],
-      "@pages/*": ["./src/pages/*"],
-      "@commons/*": ["./src/commons/*"],
-      "@utils/*": ["./src/utils/*"],
-      "@graphql/*": ["./src/graphql/*"],
-      "@locale/*": ["./src/locale/*"],
-      "@providers/*": ["./src/providers/*"],
-      "@hooks/*": ["./src/hooks/*"],
-      "@ui/*": ["./src/ui/*"]
+      "@/*": ["./*"],
+      "@providers/*": ["./providers/*"],
+      "@utils/*": ["./utils/*"],
+      "@hooks/*": ["./hooks/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
