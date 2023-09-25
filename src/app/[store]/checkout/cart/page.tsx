@@ -1,22 +1,18 @@
-import { Metadata, ResolvingMetadata } from "next";
-import React from "react";
-
-
+import { Metadata, ResolvingMetadata } from 'next'
+import React from 'react'
 
 /**
  *
  * @param params
  * @returns
  */
-const CheckoutCartPage = async ({
-  params
-}: {params: any}) => {
+const CheckoutCartPage = async ({ params }: { params: any }) => {
   return (
     <>
-    Checkout Cart Page 
-    {JSON.stringify(params)}
+      Checkout Cart Page
+      {JSON.stringify(params)}
     </>
-  );
-};
+  )
+}
 
-export default CheckoutCartPage;
+export default CheckoutCartPage

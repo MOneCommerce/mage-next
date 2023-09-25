@@ -1,8 +1,5 @@
+const CategoryLayout = ({ children }: { children: React.ReactNode }) => {
+  return <>{children}</>
+}
 
-const CategoryLayout = ({ children }: {
-  children: React.ReactNode;
-}) => {
-	return <>{children}</>;
-};
-
-export default CategoryLayout;
+export default CategoryLayout

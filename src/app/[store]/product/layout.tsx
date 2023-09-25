@@ -1,8 +1,5 @@
+const ProductLayout = ({ children }: { children: React.ReactNode }) => {
+  return <>{children}</>
+}
 
-const ProductLayout = ({ children }: {
-  children: React.ReactNode;
-}) => {
-	return <>{children}</>;
-};
-
-export default ProductLayout;
+export default ProductLayout

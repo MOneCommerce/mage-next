@@ -1,8 +1,5 @@
+const CmsPageLayout = ({ children }: { children: React.ReactNode }) => {
+  return <>{children}</>
+}
 
-const CmsPageLayout = ({ children }: {
-  children: React.ReactNode;
-}) => {
-	return <>{children}</>;
-};
-
-export default CmsPageLayout;
+export default CmsPageLayout

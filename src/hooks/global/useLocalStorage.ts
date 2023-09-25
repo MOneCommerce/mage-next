@@ -1,72 +1,72 @@
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from 'react'
 
 export interface UseLocalStorageOpts {
-  sync?: boolean;
+  sync?: boolean
 }
 
-export type SetLocalStorageValue<T> = T | ((prevValue: T) => T);
-export type SetLocalStorage<T> = (value: SetLocalStorageValue<T>) => void;
+export type SetLocalStorageValue<T> = T | ((prevValue: T) => T)
+export type SetLocalStorage<T> = (value: SetLocalStorageValue<T>) => void
 export function useLocalStorage<T>(
   key: string,
   initialValue: T,
-  { sync }: UseLocalStorageOpts = {}
+  { sync }: UseLocalStorageOpts = {},
 ): [T, SetLocalStorage<T>] {
   const [storedValue, setStoredValue] = useState<T>(() => {
-    let result: T;
+    let result: T
     try {
-      const item = window.localStorage.getItem(key);
-      result = item ? JSON.parse(item) : initialValue;
+      const item = window.localStorage.getItem(key)
+      result = item ? JSON.parse(item) : initialValue
     } catch {
-      result = initialValue;
+      result = initialValue
     }
 
-    return result;
-  });
+    return result
+  })
 
   const setValue = (valueOrCb: SetLocalStorageValue<T>) => {
-    setStoredValue(valueOrCb);
+    setStoredValue(valueOrCb)
     const valueToStore =
-      valueOrCb instanceof Function ? valueOrCb(storedValue) : valueOrCb;
+      valueOrCb instanceof Function ? valueOrCb(storedValue) : valueOrCb
 
     try {
       window.localStorage.setItem(
         key,
-        typeof valueToStore === "object"
+        typeof valueToStore === 'object'
           ? JSON.stringify(valueToStore)
-          : (valueToStore as string)
-      );
+          : (valueToStore as string),
+      )
     } catch {
-      console.warn(`Could not save ${key} to localStorage`);
+      console.warn(`Could not save ${key} to localStorage`)
     }
-  };
+  }
 
   const onStorage = useCallback(
     (event: StorageEvent) => {
-      if (event.key !== key) return;
+      if (event.key !== key) return
 
       try {
-        const item = event.newValue;
+        const item = event.newValue
         if (item) {
           // @todo: should we validate the value here?
-          setStoredValue(JSON.parse(item) as T);
+          setStoredValue(JSON.parse(item) as T)
         }
       } catch {
-        console.warn(`Could not update value for ${key}`);
+        console.warn(`Could not update value for ${key}`)
       }
     },
-    [key]
-  );
+    [key],
+  )
 
   useEffect(() => {
     if (sync) {
-      window.addEventListener("storage", onStorage);
+      window.addEventListener('storage', onStorage)
 
       return () => {
-        window.removeEventListener("storage", onStorage);
-      };
+        window.removeEventListener('storage', onStorage)
+      }
     }
-    return undefined;
-  }, [onStorage, sync]);
+    return undefined
+  }, [onStorage, sync])
 
-  return [storedValue, setValue];
+  return [storedValue, setValue]
 }

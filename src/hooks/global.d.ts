@@ -1,3 +1,3 @@
-import { SetLocalStorage } from "./global/useLocalStorage";
+import { SetLocalStorage } from './global/useLocalStorage'
 
-export type { SetLocalStorage };
+export type { SetLocalStorage }
