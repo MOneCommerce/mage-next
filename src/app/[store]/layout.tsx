@@ -1,5 +1,7 @@
+import { ApolloWrapper } from '@/providers/ApolloProvider'
 import StoreProvider from '@providers/StoreProvider'
 import type { Metadata } from 'next'
+import { NextIntlClientProvider } from 'next-intl'
 import { Inter } from 'next/font/google'
 
 const inter = Inter({ subsets: ['latin'] })
@@ -24,8 +26,12 @@ export default async function RootStoreLayout({
   }
 }) {
   return (
-    <StoreProvider store={params.store} locale="en" messages={{}} settings={{}}>
-      {children}
-    </StoreProvider>
+    <ApolloWrapper>
+      <StoreProvider store={params.store} messages={{}} settings={{}}>
+        <NextIntlClientProvider locale={locale} messages={messages}>
+          {children}
+        </NextIntlClientProvider>
+      </StoreProvider>
+    </ApolloWrapper>
   )
 }
