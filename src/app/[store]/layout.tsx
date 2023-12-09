@@ -27,10 +27,8 @@ export default async function RootStoreLayout({
 }) {
   return (
     <ApolloWrapper>
-      <StoreProvider store={params.store} messages={{}} settings={{}}>
-        <NextIntlClientProvider locale={locale} messages={messages}>
-          {children}
-        </NextIntlClientProvider>
+      <StoreProvider store={params.store} settings={{}}>
+        <NextIntlClientProvider>{children}</NextIntlClientProvider>
       </StoreProvider>
     </ApolloWrapper>
   )
